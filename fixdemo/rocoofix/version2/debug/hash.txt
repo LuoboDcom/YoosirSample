@@ -1,0 +1,3 @@
+com/ys/yoosir/fixdemo/a.class:1a5adf6485a04dc4f3ffef6a5ab2b9fadadccd75
+com/ys/yoosir/fixdemo/b.class:c1d5b202e3d732375c92927c6f64c7354a7e67bf
+com/ys/yoosir/fixdemo/MainActivity.class:c8a1cf7510e5c0cd87d902c4321e55f65abe04a4

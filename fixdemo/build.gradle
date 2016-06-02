@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.dodola.rocoofix'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.ys.yoosir.fixdemo"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 2
+        versionName "2.0"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+rocoo_fix {
+//    includePackage = ['com.ys.yoosir.fixdemo']//限制需要制作补丁的package
+    excludeClass = ['com.ys.yoosir.fixdemo.FixApplication.class']//将不需要加到patch里的类写在这里
+
+    //preVersionPath = '2'//注意：此项属性只在需要制作补丁的时候才需开启！！如果不需要制作补丁则需要去掉此项
+
+    enable = true//注意：关掉此项会无法生成Hash.txt文件
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:design:23.3.0'
+    compile project(':rocoo')
+}
